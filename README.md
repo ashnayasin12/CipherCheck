@@ -1,2 +1,2 @@
 # CipherCheck
-Introducing CipherCheck: a robust password strength checker that offers real-time feedback, dynamically verifying all requirements as you type. For added convenience, it also includes a random password generation feature. Strengthen your online security effortlessly with CipherCheck!
+Introducing CipherCheck: a cutting-edge password strength checker designed to enhance your online security. CipherCheck provides dynamic feedback, visually checking off password requirements as you type, ensuring your passwords meet the highest standards. For added convenience, it features a random password generation tool, helping you create strong, secure passwords effortlessly. Strengthen your defenses with CipherCheck!
