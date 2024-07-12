@@ -1,0 +1,181 @@
+body{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-image:url("logo.jpg");
+
+}
+
+.login-form{
+    padding-top: 80px;
+    border:darkgoldenrod;
+    border-style:solid;
+    width:500px;
+    height: 500px;
+    border-radius: 30px;
+    display:list-item;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+.container {
+    height: 100vh;
+    width: 100%;
+    color:maroon;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: -15px; 
+    font-size:large;
+    border-radius:30px;
+    border-color: white;
+    box-shadow:0 0 10px rgba(0, 0, 0, 0.1);
+    border: 100px;
+}
+
+.input-box {
+    width: 400px;
+    max-width: 90%;
+    position:relative;
+    display: block;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+ .input-box input {
+    width: 100%;
+    height: 60px;
+    padding: 0 20px;
+    border: 1px solid #ccc;
+    outline: 0; 
+     color: #fff; 
+    background: transparent;
+} 
+
+.password-toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    cursor: pointer;
+    color: #fff;
+}
+
+.fa-eye, .fa-eye-slash {
+    font-size: 20px;
+}
+
+#message {
+    position: absolute;
+    bottom: -30px;
+    color: #fff;
+    font-size: 15px;
+    display: none;
+}
+
+.requirements {
+    margin-top: 20px;
+    color: #fff;
+}
+
+.options {
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h3 {
+    margin-left: 30px;
+    color:saddlebrown;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    margin-bottom: 10px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+}
+
+span.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    vertical-align: middle;
+    text-align: center;
+    color: #fff;
+}
+
+span.checkmark i {
+    display: none;
+}
+
+li.met span.checkmark {
+    background-color: green;
+    border-color: green;
+}
+
+li.met span.checkmark i {
+    display: inline-block;
+    color: #fff;
+}
+
+.fa-check {
+    font-size: 12px;
+}
+
+span.checkmark i.fa-check::before {
+    content: "\f00c";
+}
+#generatePasswordBtn {
+    width:400px;
+    padding:10px;
+    background-color: maroon;
+    color:#fff;
+    font-family: monospace;
+    margin-top:20px;
+    margin-bottom: 20px;
+    font-size:larger;
+    border-radius:40px;
+    cursor:pointer;
+    transition:background-color 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; */
+}
+
+#generatePasswordBtn:hover {
+    background-color: red;
+    /* background-color: #0056b3; */
+}

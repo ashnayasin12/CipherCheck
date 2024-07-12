@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength Indicator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+<div class="container">
+    <form class="login-form">
+    <div class="input-box">
+        <input type="password" id="password" placeholder="Password">
+        <span class="password-toggle" onclick="togglePasswordVisibility()">
+            <i class="fas fa-eye"></i>
+        </span>
+        <p id="message">Password is <span id="strength">Weak</span></p>
+    </div>
+    <div class="requirements">
+        <div class="options">
+            <h3>Password Requirements</h3>
+            <ul>
+                <li id="length"><span class="checkmark"><i class="fas fa-check"></i></span> At least 8 characters</li>
+                <li id="uppercase"><span class="checkmark"><i class="fas fa-check"></i></span> At least one uppercase letter</li>
+                <li id="lowercase"><span class="checkmark"><i class="fas fa-check"></i></span> At least one lowercase letter</li>
+                <li id="number"><span class="checkmark"><i class="fas fa-check"></i></span> At least one number</li>
+                <li id="special"><span class="checkmark"><i class="fas fa-check"></i></span> At least one special character</li>
+            </ul>
+        </div>
+    </div>
+    </form>
+    <!-- Add button to generate random password -->
+   <button id="generatePasswordBtn">Generate Random Password</button> 
+    </div>
+    
+
+<script>
+    var pass = document.getElementById("password");
+    var msg = document.getElementById("message");
+    var str = document.getElementById("strength");
+
+    pass.addEventListener('input', checkStrength);
+    
+    function checkStrength() {
+        var lengthCondition = pass.value.length >= 8;
+        var uppercaseCondition = /[A-Z]/.test(pass.value);
+        var lowercaseCondition = /[a-z]/.test(pass.value);
+        var numberCondition = /\d/.test(pass.value);
+        var specialCondition = /[^A-Za-z0-9]/.test(pass.value);
+        
+        document.getElementById("length").classList.toggle("met", lengthCondition);
+        document.getElementById("uppercase").classList.toggle("met", uppercaseCondition);
+        document.getElementById("lowercase").classList.toggle("met", lowercaseCondition);
+        document.getElementById("number").classList.toggle("met", numberCondition);
+        document.getElementById("special").classList.toggle("met", specialCondition);
+
+        var conditionsChecked = document.querySelectorAll('.met').length;
+
+        updateStrength(conditionsChecked);
+    }
+
+    function updateStrength(conditionsChecked) {
+        if (conditionsChecked <= 2) {
+            str.innerHTML = "Weak";
+            pass.style.borderColor = "#ff5925";
+            msg.style.color = "#ff5925";
+        } else if (conditionsChecked >2 && conditionsChecked <=4) {
+            str.innerHTML = "Medium";
+            pass.style.borderColor = "yellow";
+            msg.style.color = "yellow";
+        } else if (conditionsChecked === 5) {
+            str.innerHTML = "Strong";
+            pass.style.borderColor = "#26d730";
+            msg.style.color = "#26d730";
+        }
+    }
+
+    function togglePasswordVisibility() {
+        var passwordField = document.getElementById("password");
+        var eyeIcon = document.querySelector(".password-toggle i");
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            eyeIcon.classList.remove("fa-eye");
+            eyeIcon.classList.add("fa-eye-slash");
+        } else {
+            passwordField.type = "password";
+            eyeIcon.classList.remove("fa-eye-slash");
+            eyeIcon.classList.add("fa-eye");
+        }
+    }
+    
+    document.getElementById("generatePasswordBtn").addEventListener("click", function() {
+    generateRandomStrongPassword();
+});
+
+function generateRandomStrongPassword() {
+    var length = 12; // Increased length for stronger passwords
+    var charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+"; // Character set
+    var password = "";
+
+    // Ensure the generated password meets the criteria for a strong password
+    var lowercase = "abcdefghijklmnopqrstuvwxyz";
+    var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    var numbers = "0123456789";
+    var specialChars = "!@#$%^&*()_+";
+
+    // At least one lowercase letter
+    password += lowercase.charAt(Math.floor(Math.random() * lowercase.length));
+
+    // At least one uppercase letter
+    password += uppercase.charAt(Math.floor(Math.random() * uppercase.length));
+
+    // At least one number
+    password += numbers.charAt(Math.floor(Math.random() * numbers.length));
+
+    // At least one special character
+    password += specialChars.charAt(Math.floor(Math.random() * specialChars.length));
+
+    // Generate the remaining characters
+    for (var i = 4; i < length; ++i) {
+        password += charset.charAt(Math.floor(Math.random() * charset.length));
+    }
+
+    // Shuffle the password to ensure randomness
+    password = password.split('').sort(function(){return 0.5-Math.random()}).join('');
+
+    // Set the generated password to the input field
+    pass.value = password;
+
+    // Check the strength of the generated password
+    checkStrength();
+}
+</script>
+</body>
+</html>

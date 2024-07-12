@@ -1,0 +1,39 @@
+
+body{
+    background: #240303;
+}
+
+
+a:link {
+    color: maroon;
+    background-color: transparent;
+    text-decoration: none;
+  }
+img
+{
+  padding: 5px;
+  width: 420px;
+  height: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+button{
+    width:400px;
+    padding:10px;
+    background-color: maroon;
+    color:#fff;
+    font-family: monospace;
+    margin-top:20px;
+    margin-bottom: 20px;
+    font-size:larger;
+    border-radius:40px;
+    cursor:pointer;
+    transition:background-color 0.3s ease;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+button:hover{
+    background-color: red;
+}
